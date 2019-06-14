@@ -7,7 +7,7 @@ The contents in this repo are mostly from [Jean-Louis Ferey's openstack-security
 
 For gathering information about the instances an Ansible OpenStack module is used named [`os-user-facts`](https://docs.ansible.com/ansible/latest/modules/os_user_facts_module.html#os-user-facts-module)
 
-For gathering information about the security groups Jean-Louis has worte a module for Ansible which can be found in the `library/` directory.
+For gathering information about the security groups Jean-Louis has wrote a module for Ansible which can be found in the `library/` directory.
 
 ### Getting Started
 1. Run `install_dependencies.sh` to install `pip`, [`shade`](https://pypi.org/project/shade/), `ansible` and [`graphviz`](https://graphviz.org/)
