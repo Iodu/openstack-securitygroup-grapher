@@ -1,9 +1,3 @@
----
-# tasks file for openstack-securitygroup-grapher
-
-# 1 - get instances information
-# 2 - get security group and rules information
-
 - name: verify needed variables
   assert:
     that: "{{ item }} is defined"
@@ -19,7 +13,7 @@
 - name: alert if dot is not installed
   assert:
     that: osggraphercmd_out.rc == 0
-    msg: "dot (from graphviz) has to be installed to use this role"  
+    msg: "dot (from graphviz) has to be installed to use this role"
 
 - name: Get instances information
   os_server_facts:
@@ -28,7 +22,7 @@
   tags: instance
   when: osggrapherShowInstances
 
-- name: Get security groups and rules
+- name: get security groups and rules
   os_security_groups_facts:
     validate_certs: false
     cloud: "{{ osggrapherCloudInfra }}"

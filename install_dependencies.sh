@@ -1,0 +1,1 @@
+sudo apt install python-pip -y && sudo apt install ansible -y && sudo apt install graphviz -y && pip install shade

@@ -1,0 +1,7 @@
+- name: Security group visualizer
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  roles:
+    - role: openstack-securitygroup-visualizer
+      osggrapherCloudInfra: fuga

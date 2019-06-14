@@ -1,0 +1,7 @@
+osggrapherShowInstances: true
+osggrapherShowDefault: false
+osgrapherServerLabel: "Fuga Instance"
+osggrapherDotFileToRender: ./CloudVisualizer.dot
+osggrapherFileToRender: ./CloudVisualizer.png
+osggrapherRankdir: LR
+

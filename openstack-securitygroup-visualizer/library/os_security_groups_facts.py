@@ -24,33 +24,6 @@ try:
 except ImportError:
     HAS_SHADE = False
 
-DOCUMENTATION = '''
----
-module: os_security_groups_facts
-short_description: list all security_groups and security_groups_rules of a project
-version_added: "2.0"
-description:
-    - Retrieve facts about security_groups instances from OpenStack.
-notes:
-    - This module creates a new top-level C(openstack_security_groups) fact, which
-      contains a list of security_groups and their rules.
-requirements:
-    - "python >= 2.6"
-    - "shade"
-options:
-     no options at this time
- extends_documentation_fragment: openstack
-'''
-
-EXAMPLES = '''
-# Gather facts about all security_groups :
-- os_security_groups_facts:
-    cloud: rax-dfw
-    security_groups: web*
-- debug:
-    var: openstack_security_groups
-'''
-
 
 def main():
 
@@ -59,29 +32,20 @@ def main():
         filters=dict(required=False, type='dict', default=None),
     )
 
-#    module_kwargs = openstack_module_kwargs()
-#    module = AnsibleModule(argument_spec, **module_kwargs)
-
-    module = AnsibleModule(argument_spec)
-
     if not HAS_SHADE:
         module.fail_json(msg='shade is required for this module')
-
-#    security_group =module.params.pop('security_group') 
-#    filters = module.params.pop('filters')
 
     try:
         cloud = shade.openstack_cloud(**module.params)
         openstack_security_groups = cloud.list_security_groups()
-
         module.exit_json(changed=False, ansible_facts=dict(
-            openstack_security_groups=openstack_security_groups)) 
+            openstack_security_groups=openstack_security_groups))
 
     except shade.OpenStackCloudException as e:
         module.fail_json(msg=str(e))
 
-# this is magic, see lib/ansible/module_common.py
 from ansible.module_utils.basic import *
 from ansible.module_utils.openstack import *
 if __name__ == '__main__':
     main()
+
