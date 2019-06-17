@@ -1,7 +1,7 @@
 digraph G {
-  graph [fontname = "helvetica"];
-  node [fontname = "helvetica"];
-  edge [fontname = "helvetica"];
+  graph [fontname = "roboto"];
+  node [fontname = "roboto"];
+  edge [fontname = "roboto"];
   rankdir={{ osggrapherRankdir }};
 {% if osggrapherShowInstances %}
 {%    for sg in openstack_security_groups %}
@@ -11,7 +11,7 @@ digraph G {
       shape = record
       label = <<table border="0" cellspacing="0">
                   <tr><td ><b>{{ sg.name }}</b></td></tr>
-                  <tr><td ><i>Servers</i></td></tr>
+                  <tr><td ><i>Fuga Cloud Instances</i></td></tr>
 {%           for MyServer in openstack_servers %}
 {%               if MyServer.security_groups | selectattr('name','equalto', sg.name) | list | first is defined %}
                   <tr><td border="1" bgcolor="gray">{{ MyServer.name }}</td></tr>

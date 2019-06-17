@@ -20,6 +20,7 @@ import fnmatch
 try:
     import shade
     from shade import meta
+
     HAS_SHADE = True
 except ImportError:
     HAS_SHADE = False
@@ -29,23 +30,27 @@ def main():
 
     argument_spec = openstack_full_argument_spec(
         security_group=dict(required=False),
-        filters=dict(required=False, type='dict', default=None),
+        filters=dict(required=False, type="dict", default=None),
     )
+    module = AnsibleModule(argument_spec)
 
     if not HAS_SHADE:
-        module.fail_json(msg='shade is required for this module')
+        module.fail_json(msg="shade is required for this module")
 
     try:
         cloud = shade.openstack_cloud(**module.params)
         openstack_security_groups = cloud.list_security_groups()
-        module.exit_json(changed=False, ansible_facts=dict(
-            openstack_security_groups=openstack_security_groups))
+        module.exit_json(
+            changed=False,
+            ansible_facts=dict(openstack_security_groups=openstack_security_groups),
+        )
 
     except shade.OpenStackCloudException as e:
         module.fail_json(msg=str(e))
 
+
 from ansible.module_utils.basic import *
 from ansible.module_utils.openstack import *
-if __name__ == '__main__':
-    main()
 
+if __name__ == "__main__":
+    main()
