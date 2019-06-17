@@ -22,3 +22,11 @@ For gathering information about the security groups Jean-Louis has wrote a modul
     - `osggrapherDotFileToRender`: where to output the `.dot` file?
     - `osggrapherFileToRender`: where to output the `.png` file?
     - `osggrapherRankdir`: [what direction should the layout of the drawing be?](https://www.graphviz.org/doc/info/attrs.html#d:rankdir)
+4. Run `ansible-playbook playbook.yaml`
+
+### Or with docker-compose
+1. Git clone
+2. Place the clouds.yaml in the root of the cloned folder
+3. Run `docker-compose up`
+4. Your graph is in the openstack-securitygroup-visualizer folder
+5. PROFIT! :tada: :cake:
