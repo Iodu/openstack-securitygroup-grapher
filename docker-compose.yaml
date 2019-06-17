@@ -1,0 +1,10 @@
+version: "3"
+services:
+  sec:
+    build:
+      context: .
+    volumes:
+      - "./openstack-securitygroup-visualizer:/home/openstack-securitygroup-visualizer"
+      - "./clouds.yaml:/home/clouds.yaml"
+      - "./playbook.yaml:/home/playbook.yaml"
+    command: ansible-playbook playbook.yaml

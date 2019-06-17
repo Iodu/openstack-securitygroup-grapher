@@ -35,3 +35,6 @@
 
 - name: render graph
   shell: "dot -Tpng -o{{ osggrapherFileToRender}} {{ osggrapherDotFileToRender }}"
+
+- name: move rendered file
+  shell: "mv {{ (osggrapherDotFileToRender | splitext)[0] }}.png openstack-securitygroup-visualizer"
