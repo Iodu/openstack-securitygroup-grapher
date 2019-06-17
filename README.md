@@ -1,6 +1,9 @@
+
+> Fork from: [openstack-securitygroup-grapher](https://github.com/jeanlouisferey/openstack-securitygroup-grapher)
+
 ## Visualize your security groups
 
-This is an [Ansible](https://docs.ansible.com/ansible/latest/) playbook which will generate a visual representation of your Fuga Cloud security groups + instances.
+This is an [Ansible](https://docs.ansible.com/ansible/latest/) playbook which will generate a visual representation of your [Fuga Cloud](https://fuga.cloud) security groups + instances.
 
 The contents in this repo are mostly from [Jean-Louis Ferey's openstack-securitygroup-grapher
 ](https://github.com/jeanlouisferey/openstack-securitygroup-grapher) but with adjustements specific to Fuga Cloud.
@@ -12,7 +15,7 @@ For gathering information about the security groups Jean-Louis has wrote a modul
 ### Getting Started
 1. Run `install_dependencies.sh` to install `pip`, [`shade`](https://pypi.org/project/shade/), `ansible` and [`graphviz`](https://graphviz.org/)
 2. Add your clouds.yaml
-    - Found on the Fuga Cloud Dashboard under **Account->Access**; your clouds.yaml specifies where to look for the security groups, instances etc.
+    - Found on the [Fuga Cloud Dashboard](https://my.fuga.cloud) under **Account->Access**; your clouds.yaml specifies where to look for the security groups, instances etc.
 3. Take a look into `vars/main.yaml`:
     - `osggrapherShowDefault`: want to include the default security group in your drawing?
     - `osggrapherShowInstances`: want your instances to be drawn? (like one of your french girls)
